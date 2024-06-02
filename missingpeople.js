@@ -40,4 +40,13 @@ $(document).ready(function() {
         });
         
     });
-})
+});
+
+
+
+
+/**/
+function countChar(val) {
+    var len = val.value.length;
+    $('#messageCounter').text(len);
+}
