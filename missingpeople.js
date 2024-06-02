@@ -1,25 +1,10 @@
 $(document).ready(function() {
-    $("#Soundcloud").on('click', function() {
-        window.open('https://www.facebook.com/missingpeopleparty/', '_blank');
-    });
-
-    $("#Facebook").on('click', function() {
-        window.open('https://www.facebook.com/missingpeopleparty/', '_blank');
-    });
-
-    $("#Instagram").on('click', function() {
-        window.open('https://www.facebook.com/missingpeopleparty/', '_blank');
-    });
-
-    $("#Spotify").on('click', function() {
-        window.open('https://www.facebook.com/missingpeopleparty/', '_blank');
-    });
-    
     const form = document.querySelector('form'); // Select the form element
 
     form.addEventListener('submit', (event) => {
         event.preventDefault(); // Prevent default form submission
-
+        openPopup('Sending, please wait...');
+        
         const formData = new FormData(form);
         const jsonData = Object.fromEntries(formData.entries()); // Convert FormData to a regular object
 
@@ -28,22 +13,42 @@ $(document).ready(function() {
             type: 'POST',
             data: JSON.stringify(jsonData),
             contentType: 'application/json',
-            dataType: 'json', // Optional: Specify expected response format
             success: function(data) {
                 console.log('Success:', data);
-                // Display a success message or handle the API response
+                clearForm();
+                openPopup('Message sent!');
             },
             error: function(jqXHR, textStatus, errorThrown) {
                 console.error('Error:', textStatus, errorThrown);
-                // Display an error message
+                openPopup('Message failed, try again in a minute...');
             }
         });
         
     });
 });
 
+/**/
+function clearForm() {
+    $('#email').val('');
+    $('#content').val('');
+    $('#messageCounter').text('0');
+}
 
+function openPopup(text) {
+    $('#popupMessage').text(text);
+    $('#popup').css('visibility', 'visible');
+    $('#popup').css('opacity', '1');
+}
 
+function closePopup() {
+    $('#popup').css('visibility', 'hidden');
+    $('#popup').css('opacity', '0');
+}
+
+$(document).ready(function() {
+    $('#popup').on("click", function () {closePopup();});
+    $('#popupMessage').on("click", function () {closePopup();});
+});
 
 /**/
 function countChar(val) {
