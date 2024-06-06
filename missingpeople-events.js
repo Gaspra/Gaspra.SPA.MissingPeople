@@ -1,7 +1,5 @@
 $(document).ready(function() {
     console.log('getting data from google sheet');
-    const url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRdr4wyGHoaFMARJYIznB0Su7gm6GqXAVIUmKOYCKHKPHgdervwsCbxORAsMhuR6aagpTWNubadYRPT/pub?output=csv';
-//https://docs.google.com/spreadsheets/d/e/2PACX-1vRdr4wyGHoaFMARJYIznB0Su7gm6GqXAVIUmKOYCKHKPHgdervwsCbxORAsMhuR6aagpTWNubadYRPT/pubhtml
 
     $.ajax({
         url: "https://docs.google.com/spreadsheets/d/e/2PACX-1vRdr4wyGHoaFMARJYIznB0Su7gm6GqXAVIUmKOYCKHKPHgdervwsCbxORAsMhuR6aagpTWNubadYRPT/pub?output=csv",
@@ -25,39 +23,33 @@ $(document).ready(function() {
             var jsonData = JSON.stringify(dataArray);
             console.log(jsonData); // Log the JSON object to the console
 
-            dataArray.forEach(item => {
+            dataArray.forEach(function(item, idx, array) {
                 console.log(item);
-                $('#events').append(`
-                    <li>
-                      <h2>${item.Title}</h2>
-                      <p>${item.Date}</p>
-                      <p>${item.Description}</p>
-                    </li>
-                `);
+                var eventHtml = '';
+
+                eventHtml += '<li>';
+
+                var linkHtml = '';
+
+                if(item.Link.trim() !== '') {
+                    linkHtml = ' | <a href="' + item.Link.trim() + '" class="fas fa-link" style="border-bottom: none !important;" target="_blank"></a>';
+                } 
+                
+                eventHtml += '<p>' + item.Title.trim() + ' | ' + item.Date.trim() + linkHtml + '</p>';
+                
+                eventHtml += '<p>' + item.Description.trim() + '</p>';
+                
+                eventHtml += '</li>';
+
+                if (idx !== array.length - 1) {
+                    eventHtml += '<div class="break"></div>';
+                }
+                
+                $('#events').append(eventHtml);
             });
         },
         error: function(xhr, textStatus, errorThrown) {
             console.error("Error fetching CSV data:", errorThrown);
         }
-    });
-    
-    $.getJSON(url, data => {
-        console.log(data.feed.entry);
-
-        data.feed.entry.forEach(item => {
-            const post = {
-                date: item['gsx$Date']['$t'],
-                title: item['gsx$Title']['$t'],
-                description: item['gsx$Description']['$t'],
-            };
-
-            $('#events').append(`
-        <li>
-          <h2>${post.title}</h2>
-          <p>${post.date}</p>
-          <p>${post.description}</p>
-        </li>
-    `);
-        });
     });
 }); 

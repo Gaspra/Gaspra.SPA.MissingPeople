@@ -1,12 +1,10 @@
-<html>
+<html lang="en">>
 	<head>
 		<title>Missing People</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main-white.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-		<script type="text/javascript" src="jquery.js?ver=0.1"></script>
-		<script type="text/javascript" src="missingpeople-events.js?ver=0.1"></script>
 	</head>
 	<body class="is-preload">
 		<div id="wrapper">
@@ -15,17 +13,18 @@
 			<div id="main">
 				<!-- Header -->
 					<header id="header">
-						<img src="assets/css/images/logo_400x400.png" alt="Missing People"/>
-						<h1>Missing People</h1>
-						<p>A musical meeting point for you and your wayward friends</p>
+						<a href="/" style="border-bottom: none !important;">
+							<img src="assets/css/images/logo_400x400.png" alt="Missing People"/>
+							<h1>Missing People</h1>
+							<h2>Events:</h2>
+						</a>
 						<div id="events">
-							
 						</div>
-						<nav>
+						<!--<nav>
 							<ul>
 								<li><a href="/" class="fas fa-home" target="_self"><span class="label">Home</span></a></li>
 							</ul>
-						</nav>
+						</nav>-->
 					</header>
 			</div>
 		</div>
@@ -39,5 +38,7 @@
 			window.ontouchmove = function() { return false; }
 			window.onorientationchange = function() { document.body.scrollTop = 0; }
 		</script>
+		<script type="text/javascript" src="jquery.js?ver=0.1"></script>
+		<script type="text/javascript" src="missingpeople-events.js?ver=0.1"></script>
 	</body>
 </html>

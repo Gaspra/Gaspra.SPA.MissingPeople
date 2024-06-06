@@ -539,10 +539,10 @@ input, select, textarea {
 	}
 
 	#header {
-		-moz-animation: header 1s 2.25s forwards;
-		-webkit-animation: header 1s 2.25s forwards;
-		-ms-animation: header 1s 2.25s forwards;
-		animation: header 1s 2.25s forwards;
+		-moz-animation: header 0.6s 1.2s forwards;
+		-webkit-animation: header 0.6s 1.2s forwards;
+		-ms-animation: header 0.6s 1.2s forwards;
+		animation: header 0.6s 1.2s forwards;
 		-moz-backface-visibility: hidden;
 		-webkit-backface-visibility: hidden;
 		-ms-backface-visibility: hidden;
@@ -556,7 +556,7 @@ input, select, textarea {
 		opacity: 0;
 		position: relative;
 		text-align: center;
-		top: -1em;
+		top: -5em;
 		vertical-align: middle;
 		width: 90%;
 	}
@@ -683,9 +683,10 @@ input, select, textarea {
 					-ms-transition: all 0.2s ease-in-out;
 					transition: all 0.2s ease-in-out;
 					border-radius: 100%;
-					border: solid 1px; /* #fff; */
+					/*border: solid 1px #fff; */
+					border: 0.01em solid rgba(0,0,0,1);
 					display: block;
-					font-size: 1.75em;
+					font-size: 1.5em;
 					height: 2.5em;
 					line-height: 2.5em;
 					position: relative;
@@ -695,11 +696,14 @@ input, select, textarea {
 				}
 
 				#header nav a:hover {
-					font-size: 1.1em;
+					background-color: rgba(0, 0, 0, 0.175);
+					border-radius:100%;
+					/*font-size: 1.1em;*/
 				}
 
 					#header nav a:hover:before {
-						background-color: rgba(255, 255, 255, 0.175);
+						background-color: rgba(0, 0, 0, 0.175);
+						border-radius:100%;
 						/*color: #fff;*/
 					}
 
@@ -738,6 +742,8 @@ input, select, textarea {
 				width: 100%;
 				color: #000000;
 				height: 2em;
+				border: 0.1em solid rgba(0,0,0,0.4);
+				border-radius:3px;
 			}
 			
 			#header form .formPadding {
@@ -750,6 +756,8 @@ input, select, textarea {
 				height: 6em;
 				max-height: 6em;
 				resize: none;
+				border: 0.1em solid rgba(0,0,0,0.4);
+				border-radius:3px;
 			}
 			
 			#header form button {
@@ -757,7 +765,15 @@ input, select, textarea {
 				height: 2.5em;
 				font: inherit;
 				font-weight: bold;
+				border: 0.1em solid rgba(0,0,0,0.4);
+				border-radius:3px;
 			}
+			
+				#header form button:hover {
+					cursor: pointer;
+					background-color: rgba(0, 0, 0, 0.175);
+					border-radius:3px;
+				}
 			
 /* popup */			
 	#popup {
@@ -1152,3 +1168,15 @@ input, select, textarea {
 		#header nav {
 			padding: 0 1em;
 		} }
+
+/*events*/
+.break {
+	height: 1px;
+	width: 30%;
+	background-color: rgba(0,0,0,1);
+	margin: 15px auto 15px;
+}
+
+#events li::marker {
+	content: '';
+}
