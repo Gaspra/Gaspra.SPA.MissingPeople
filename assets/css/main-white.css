@@ -575,6 +575,25 @@ input, select, textarea {
 			opacity: 0.75;
 		}
 
+		#header h2 {
+			font-size: 1.75em;
+			line-height: 2em;
+			
+		}
+		
+		#header br {
+			line-height: 0.5em;
+		}
+		
+		#header h3 {
+			font-size: 1.25em;
+			font-weight: normal;
+		}
+		
+		#header h3 b {
+			font-weight: bold;
+		}
+		
 		#header nav {
 			margin: 1.5em 0 0 0;
 		}
