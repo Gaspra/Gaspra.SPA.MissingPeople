@@ -562,7 +562,7 @@ input, select, textarea {
 		width: 90%;
 	}
 	
-	#header .missingpeoplelogo {
+	.missingpeoplelogo {
 		width: 400px;
 		height: 284px;
 		margin-bottom: 3em;
