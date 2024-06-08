@@ -1195,9 +1195,12 @@ input, select, textarea {
 	width: 30%;
 	background-color: rgba(0,0,0,1);
 	margin: 15px auto 15px;
-	padding-bottom: 3em;
 }
 
 #events li::marker {
 	content: '';
+}
+
+#events {
+	padding-bottom: 3em;
 }
