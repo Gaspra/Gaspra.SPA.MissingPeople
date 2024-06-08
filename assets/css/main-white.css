@@ -556,7 +556,8 @@ input, select, textarea {
 		opacity: 0;
 		position: relative;
 		text-align: center;
-		top: -5em;
+		/*bumping*/
+		top: -0em;
 		vertical-align: middle;
 		width: 90%;
 	}
@@ -766,6 +767,7 @@ input, select, textarea {
 				font: inherit;
 				font-weight: bold;
 				border: 0.1em solid rgba(0,0,0,0.4);
+				background-color: rgb(255,255,255);
 				border-radius:3px;
 			}
 			
