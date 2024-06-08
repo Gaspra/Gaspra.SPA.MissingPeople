@@ -578,7 +578,6 @@ input, select, textarea {
 		#header h2 {
 			font-size: 1.75em;
 			line-height: 2em;
-			
 		}
 		
 		#header br {
@@ -1196,6 +1195,7 @@ input, select, textarea {
 	width: 30%;
 	background-color: rgba(0,0,0,1);
 	margin: 15px auto 15px;
+	padding-bottom: 3em;
 }
 
 #events li::marker {
